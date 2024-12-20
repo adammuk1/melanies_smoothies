@@ -41,6 +41,10 @@ def get_snowflake_connection():
         st.error("Failed to connect to Snowflake. Please check the logs for more details.")
         return None
 
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
+
 def fetch_fruit_options(session):
     """
     Fetches fruit options from the Snowflake table.
@@ -133,6 +137,8 @@ def main():
                         st.success(success_message, icon="✅")
     else:
         st.stop()  # Stop execution if connection failed
+
+
 
 if __name__ == "__main__":
     main()
