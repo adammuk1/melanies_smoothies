@@ -28,7 +28,7 @@ def get_snowflake_connection():
         connection = snowflake.connector.connect(
             account=snowflake_config["account"],
             user=snowflake_config["user"],
-            password=snowflake_config["AADMhome2018snow!"],
+            password=snowflake_config["password"],
             role=snowflake_config.get("role", "SYSADMIN"),
             warehouse=snowflake_config.get("warehouse", "COMPUTE_WH"),
             database=snowflake_config.get("database", "SMOOTHIES"),
