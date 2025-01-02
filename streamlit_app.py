@@ -1,9 +1,6 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col
-import requests
-import pandas as pd
-import logging
 
 # Configure logging to capture detailed error information
 logging.basicConfig(
