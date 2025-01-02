@@ -1,8 +1,21 @@
 # Import python packages
 import streamlit as st 
+import logging  # Must be before using logging
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 import time  # Ensure you import time if you use it
+
+
+# Configure logging at the top of the file
+logging.basicConfig(
+    filename='app.log',
+    filemode='a',
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.ERROR
+)
+
+# ... rest of your code ...
+
 
 # Initialize Snowflake session
 session = get_active_session()
