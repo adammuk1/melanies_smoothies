@@ -1,10 +1,10 @@
 # Import python packages
 import streamlit as st 
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 import time  # Ensure you import time if you use it
 
 # Initialize Snowflake session
+cnx = st.connection("snowflake")
 session = get_active_session()
 
 # Write directly to the app
