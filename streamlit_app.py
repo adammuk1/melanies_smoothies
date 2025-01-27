@@ -5,7 +5,6 @@ import time  # Ensure you import time if you use it
 
 # Initialize Snowflake session
 cnx = st.connection("snowflake")
-session = get_active_session()
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
