@@ -46,10 +46,10 @@ if ingredients_list:
     
     # New section to display smoothiefruit nutrition information
     import requests
-    smoothiefruit_response = requests.get("https://my.smoothiefruit.com/api/fruit/watermelon")
+    smoothiefroot_response = requests.get("https://my.smoothiefruit.com/api/fruit/watermelon")
     st.text(smoothiefroot_response)
-    # # st.text(smoothiefruit_response.json())  # Previous line commented out for clarity
-    # sf_df = st.dataframe(data=smoothiefruit_response.json(), use_container_width=True)
+    # st.text(smoothiefruit_response.json())  # Previous line commented out for clarity
+    sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
     
     # Prepare the SQL insert statement safely
