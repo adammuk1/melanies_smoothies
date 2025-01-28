@@ -44,10 +44,10 @@ if ingredients_list:
     ingredients_string = ' '.join(ingredients_list)
     # st.write(f"Selected Ingredients: {ingredients_string}")
     
-
+    # New section to display smoothiefruit nutrition information
     import requests
     smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    st.text(smoothiefroot_response)
+    st.text(smoothiefruit_response.json())
     
     # Prepare the SQL insert statement safely
     # Use parameterized queries or Snowflake's API to prevent SQL injection
