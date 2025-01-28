@@ -28,7 +28,9 @@ except Exception as e:
 # Multiselect for ingredients
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:',
-    options=fruit_options
+    my_dataframe,
+    key='dataframe'
+    max_selections=5
 )
 
 # Enforce a maximum of 5 selections
