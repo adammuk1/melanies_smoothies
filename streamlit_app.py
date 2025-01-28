@@ -29,7 +29,7 @@ except Exception as e:
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:',
     my_dataframe,
-    key='dataframe'
+    key='dataframe',
     max_selections=5
 )
 
