@@ -26,6 +26,11 @@ try:
 except Exception as e:
     st.error(f"Error fetching fruit options: {e}")
 
+pd_df = my_dataframe.to_pandas()
+st.dataframe(pd_df)
+st.stop()
+
+
 # Multiselect for ingredients
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:',
