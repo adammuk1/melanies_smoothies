@@ -41,11 +41,15 @@ if len(ingredients_list) > 5:
     ingredients_list = ingredients_list[:5]
 
 if ingredients_list:
-    # Convert list of fruits to a space-separated string
-    ingredients_string = ' '.join(ingredients_list)
-    # st.write(f"Selected Ingredients: {ingredients_string}")
-    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+    ingredients_string = ""
+
+    for fruit_chosen in ingredients_list:
+        ingredients_string += fruit_chosen + ' '
+
+        st.subheader(fruit_chosen + ' Nutrition Information')
+        smoothiefruit_response = requests.get(f"https://my.smoothiefruit.com/api/fruit/{fruit_chosen}")
+        sf_df = st.dataframe(data=smoothiefruit_response.json(), use_container_width=True)
+
   
             
     # Prepare the SQL insert statement safely
