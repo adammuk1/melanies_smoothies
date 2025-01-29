@@ -21,8 +21,8 @@ st.write("The name on your Smoothie will be:", name_on_order)
 # Fetch fruit options from Snowflake
 try:
     my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
-    fruit_rows = my_dataframe.collect()
-    fruit_options = [row['FRUIT_NAME'] for row in fruit_rows]
+    # fruit_rows = my_dataframe.collect()
+    # fruit_options = [row['FRUIT_NAME'] for row in fruit_rows]
     st.dataframe(data=fruit_options, use_container_width=True)
     st.stop()
 except Exception as e:
