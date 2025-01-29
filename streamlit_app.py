@@ -26,9 +26,6 @@ try:
 except Exception as e:
     st.error(f"Error fetching fruit options: {e}")
 
-pd_df = my_dataframe.to_pandas()
-st.dataframe(pd_df)
-st.stop()
 
 
 # Multiselect for ingredients
@@ -49,6 +46,11 @@ if ingredients_list:
 
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
+
+        # Convert the Snowpark Dataframe to a Pandas Dataframe so we can use the LOC function
+        pd_df = my_dataframe.to_pandas()
+        st.dataframe(pd_df)
+        st.stop()
 
         st.subheader(fruit_chosen + ' Nutrition Information')
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
