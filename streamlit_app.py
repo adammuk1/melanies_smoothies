@@ -2,6 +2,7 @@
 import streamlit as st 
 from snowflake.snowpark.functions import col
 import time  # Ensure you import time if you use it
+import requests
 
 # Initialize Snowflake session
 cnx = st.connection("snowflake")
@@ -43,15 +44,10 @@ if ingredients_list:
     # Convert list of fruits to a space-separated string
     ingredients_string = ' '.join(ingredients_list)
     # st.write(f"Selected Ingredients: {ingredients_string}")
-    
-    # New section to display smoothiefruit nutrition information
-    import requests
     smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    st.text(smoothiefroot_response)
-    # st.text(smoothiefruit_response.json())  # Previous line commented out for clarity
     sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
-
-    
+  
+            
     # Prepare the SQL insert statement safely
     # Use parameterized queries or Snowflake's API to prevent SQL injection
     # Here, for simplicity, we're using f-strings but ensure inputs are sanitized in production
